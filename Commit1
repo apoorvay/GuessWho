@@ -1,0 +1,295 @@
+import numpy as np
+data = [["Blue", "Green", "Brown", "Blue", "Brown", "Brown", "Brown", "Green", "Brown", "Green"],
+        ["Black", "Brown", "Brown", "Black", "Blonde", "Blonde", "Black", "Red", "Blue", "Black"],
+        ["Yes", "Yes", "No", "No", "No", "No", "No", "Yes", "No", "Yes"],
+        ["Male", "Female", "Female", "Male", "Male", "Female", "Male", "Male", "Female", "Male"],
+        ["Yes", "No", "No", "Yes", "No", "No", "No", "No", "No", "Yes"],
+        ["No", "Yes", "No", "No", "Yes", "Yes", "Yes", "No", "Yes", "No"]]
+names = ["Al", "Ellen", "Jessie", "Santiago", "James", "Sherri", "Bill", "Allen", "Rene", "Tommy"]
+qualities = ["Eyes", "Hair", "Glasses", "Gender", "Beard", "Hat"]
+import pandas
+pr = pandas.DataFrame(data, qualities, names)
+
+import random
+pick = random.randint(0,9)
+eyes = data[0][pick]
+hair = data[1][pick]
+glasses = data[2][pick]
+gender = data[3][pick]
+beard = data[4][pick]
+hat = data[5][pick]
+
+numcol = len(data[0])
+score = 0
+
+print("This game works by picking a random person from the following list.")
+print("You get to guess the characteristics you think this mystery person has.")
+print("If you are correct, the people without this characteristic get eliminated.")
+print("If you are wrong, the people with this characteristic get eliminated.")
+print("You will ultimately be left with one person: the mystery character.")
+print("The goal is to get to the mystery person in as few guesses as possible.")
+print("\n")
+print(pr)
+while numcol != 1:
+    print("\n")
+    print("Choose the characteristic you want to guess using the appropriate index:  ")
+    qual = input("Eyes:0 Hair:1 Glasses:2 Gender:3 Beard:4 Hat:5:  ")
+
+    #EYES
+    if qual == 0:
+        guess = raw_input("Type in the color you want to guess (case sensitive): Blue / Brown / Green:  ")
+        flag = 0
+
+        #if correct guess
+        if guess == eyes:
+            print("CORRECT GUESS!!!")
+            ctr=0
+            #iterate through all the eye colors of all the people
+            for x in data[0]:
+                #if a person's eye color doesn't match
+                if guess != x:
+                    print(names[ctr] + " is eliminated")
+                    data = np.delete(data, ctr, 1)
+                    names = np.delete(names, ctr, 0)
+                    flag =1
+                else:
+                    ctr = ctr + 1
+            #everyone remaining matched the guessed characteristic
+            if flag == 0:
+                print("No one was eliminated")
+        #if wrong guess
+        else:
+            print("WRONG GUESS!")
+            ctr=0
+            flag=0
+            #iterate through all the eye colors of all the people
+            for x in data[0]:
+                #if a person's eye color does match
+                if guess == x:
+                    print(names[ctr] + " is eliminated")
+                    data = np.delete(data, ctr, 1)
+                    names = np.delete(names, ctr, 0)
+                    flag =1
+                else:
+                    ctr = ctr + 1
+            #everyone remaining matched the guessed characteristic
+            if flag == 0:
+                print("No one was eliminated")
+        
+
+    #HAIR
+    if qual == 1:
+        guess = raw_input("Type in the color you want to guess (case sensitive): Black / Brown / Blonde / Red:  ")
+        flag = 0
+
+        #if correct guess
+        if guess == hair:
+            print("CORRECT GUESS!!!")
+            ctr=0
+            #iterate through all the eye colors of all the people
+            for x in data[1]:
+                #if a person's eye color doesn't match
+                if guess != x:
+                    print(names[ctr] + " is eliminated")
+                    data = np.delete(data, ctr, 1)
+                    names = np.delete(names, ctr, 0)
+                    flag =1
+                else:
+                    ctr = ctr + 1
+            #everyone remaining matched the guessed characteristic
+            if flag == 0:
+                print("No one was eliminated")
+        #if wrong guess
+        else:
+            print("WRONG GUESS!")
+            ctr = 0
+            flag = 0
+            #iterate through all the eye colors of all the people
+            for x in data[1]:
+                #if a person's eye color does match
+                if guess == x:
+                    print(names[ctr] + " is eliminated")
+                    data = np.delete(data, ctr, 1)
+                    names = np.delete(names, ctr, 0)
+                    flag = 1
+                else:
+                    ctr = ctr + 1
+            #everyone remaining matched the guessed characteristic
+            if flag == 0:
+                print("No one was eliminated")
+
+    #GLASSES
+    if qual == 2:
+        guess = raw_input("Type in the Yes or No to see if the person is wearing glasses (case sensitive):  ")
+        flag = 0
+
+        #if correct guess
+        if guess == glasses:
+            print("CORRECT GUESS!!!")
+            ctr=0
+            #iterate through all the eye colors of all the people
+            for x in data[2]:
+                #if a person's eye color doesn't match
+                if guess != x:
+                    print(names[ctr] + " is eliminated")
+                    data = np.delete(data, ctr, 1)
+                    names = np.delete(names, ctr, 0)
+                    flag =1
+                else:
+                    ctr = ctr + 1
+            #everyone remaining matched the guessed characteristic
+            if flag == 0:
+                print("No one was eliminated")
+        #if wrong guess
+        else:
+            print("WRONG GUESS!")
+            ctr = 0
+            flag = 0
+            #iterate through all the eye colors of all the people
+            for x in data[2]:
+                #if a person's eye color does match
+                if guess == x:
+                    print(names[ctr] + " is eliminated")
+                    data = np.delete(data, ctr, 1)
+                    names = np.delete(names, ctr, 0)
+                    flag = 1
+                else:
+                    ctr = ctr + 1
+            #everyone remaining matched the guessed characteristic
+            if flag == 0:
+                print("No one was eliminated")
+
+    #HAIR
+    if qual == 3:
+        guess = raw_input("Type in the gender (case sensitive) Female / Male: ")
+        flag = 0
+
+        #if correct guess
+        if guess == gender:
+            print("CORRECT GUESS!!!")
+            ctr=0
+            #iterate through all the eye colors of all the people
+            for x in data[3]:
+                #if a person's eye color doesn't match
+                if guess != x:
+                    print(names[ctr] + " is eliminated")
+                    data = np.delete(data, ctr, 1)
+                    names = np.delete(names, ctr, 0)
+                    flag =1
+                else:
+                    ctr = ctr + 1
+            #everyone remaining matched the guessed characteristic
+            if flag == 0:
+                print("No one was eliminated")
+        #if wrong guess
+        else:
+            print("WRONG GUESS!")
+            ctr = 0
+            flag = 0
+            #iterate through all the eye colors of all the people
+            for x in data[3]:
+                #if a person's eye color does match
+                if guess == x:
+                    print(names[ctr] + " is eliminated")
+                    data = np.delete(data, ctr, 1)
+                    names = np.delete(names, ctr, 0)
+                    flag = 1
+                else:
+                    ctr = ctr + 1
+            #everyone remaining matched the guessed characteristic
+            if flag == 0:
+                print("No one was eliminated")
+
+    #BEARD
+    if qual == 4:
+        guess = raw_input("Type in Yes or No (case sensitive) to see if the person has a beard: ")
+        flag = 0
+
+        #if correct guess
+        if guess == beard:
+            print("CORRECT GUESS!!!")
+            ctr=0
+            #iterate through all the eye colors of all the people
+            for x in data[4]:
+                #if a person's eye color doesn't match
+                if guess != x:
+                    print(names[ctr] + " is eliminated")
+                    data = np.delete(data, ctr, 1)
+                    names = np.delete(names, ctr, 0)
+                    flag =1
+                else:
+                    ctr = ctr + 1
+            #everyone remaining matched the guessed characteristic
+            if flag == 0:
+                print("No one was eliminated")
+        #if wrong guess
+        else:
+            print("WRONG GUESS!")
+            ctr = 0
+            flag = 0
+            #iterate through all the eye colors of all the people
+            for x in data[4]:
+                #if a person's eye color does match
+                if guess == x:
+                    print(names[ctr] + " is eliminated")
+                    data = np.delete(data, ctr, 1)
+                    names = np.delete(names, ctr, 0)
+                    flag = 1
+                else:
+                    ctr = ctr + 1
+            #everyone remaining matched the guessed characteristic
+            if flag == 0:
+                print("No one was eliminated")
+
+    #HAT
+    if qual == 5:
+        guess = raw_input("Type in the Yes or No (case sensitive) to guess if the person wears a hat: ")
+        flag = 0
+
+        #if correct guess
+        if guess == hat:
+            print("CORRECT GUESS!!!")
+            ctr=0
+            #iterate through all the eye colors of all the people
+            for x in data[5]:
+                #if a person's eye color doesn't match
+                if guess != x:
+                    print(names[ctr] + " is eliminated")
+                    data = np.delete(data, ctr, 1)
+                    names = np.delete(names, ctr, 0)
+                    flag =1
+                else:
+                    ctr = ctr + 1
+            #everyone remaining matched the guessed characteristic
+            if flag == 0:
+                print("No one was eliminated")
+        #if wrong guess
+        else:
+            print("WRONG GUESS!")
+            ctr = 0
+            flag = 0
+            #iterate through all the eye colors of all the people
+            for x in data[5]:
+                #if a person's eye color does match
+                if guess == x:
+                    print(names[ctr] + " is eliminated")
+                    data = np.delete(data, ctr, 1)
+                    names = np.delete(names, ctr, 0)
+                    flag = 1
+                else:
+                    ctr = ctr + 1
+            #everyone remaining matched the guessed characteristic
+            if flag == 0:
+                print("No one was eliminated")
+
+
+    numcol = len(data[0])
+    score = score + 1
+    if numcol == 1:
+        print('You won with', score, ' guesses')
+        print("Your randomly picked person was: ")
+        print(names)
+    else:
+        pr = pandas.DataFrame(data, qualities, names)
+        print("\n")
+        print(pr)
