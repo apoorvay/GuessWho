@@ -10,6 +10,7 @@ qualities = ["Eyes", "Hair", "Glasses", "Gender", "Beard", "Hat"]
 import pandas
 pr = pandas.DataFrame(data, qualities, names)
 
+#pick random person from the list of people and record their characteristics
 import random
 pick = random.randint(0,9)
 eyes = data[0][pick]
@@ -72,7 +73,7 @@ while numcol != 1:
                     flag =1
                 else:
                     ctr = ctr + 1
-            #everyone remaining matched the guessed characteristic
+            #everyone remaining didn't match the guessed characteristic
             if flag == 0:
                 print("No one was eliminated")
         
@@ -86,9 +87,9 @@ while numcol != 1:
         if guess == hair:
             print("CORRECT GUESS!!!")
             ctr=0
-            #iterate through all the eye colors of all the people
+            #iterate through all the hair colors of all the people
             for x in data[1]:
-                #if a person's eye color doesn't match
+                #if a person's hair color doesn't match
                 if guess != x:
                     print(names[ctr] + " is eliminated")
                     data = np.delete(data, ctr, 1)
@@ -104,9 +105,9 @@ while numcol != 1:
             print("WRONG GUESS!")
             ctr = 0
             flag = 0
-            #iterate through all the eye colors of all the people
+            #iterate through all the hair colors of all the people
             for x in data[1]:
-                #if a person's eye color does match
+                #if a person's hair color does match
                 if guess == x:
                     print(names[ctr] + " is eliminated")
                     data = np.delete(data, ctr, 1)
@@ -114,7 +115,7 @@ while numcol != 1:
                     flag = 1
                 else:
                     ctr = ctr + 1
-            #everyone remaining matched the guessed characteristic
+            #everyone remaining didn't match the guessed characteristic
             if flag == 0:
                 print("No one was eliminated")
 
@@ -127,9 +128,9 @@ while numcol != 1:
         if guess == glasses:
             print("CORRECT GUESS!!!")
             ctr=0
-            #iterate through all the eye colors of all the people
+            #iterate through the glasses data of all the poeple
             for x in data[2]:
-                #if a person's eye color doesn't match
+                #if guess doesn't match with the characteristic
                 if guess != x:
                     print(names[ctr] + " is eliminated")
                     data = np.delete(data, ctr, 1)
@@ -145,9 +146,9 @@ while numcol != 1:
             print("WRONG GUESS!")
             ctr = 0
             flag = 0
-            #iterate through all the eye colors of all the people
+            #iterate through the glasses data of all the people
             for x in data[2]:
-                #if a person's eye color does match
+                #if guess does match the characteristic
                 if guess == x:
                     print(names[ctr] + " is eliminated")
                     data = np.delete(data, ctr, 1)
@@ -155,11 +156,11 @@ while numcol != 1:
                     flag = 1
                 else:
                     ctr = ctr + 1
-            #everyone remaining matched the guessed characteristic
+            #everyone remaining didn't match the guessed characteristic
             if flag == 0:
                 print("No one was eliminated")
 
-    #HAIR
+    #GENDER
     if qual == 3:
         guess = raw_input("Type in the gender (case sensitive) Female / Male: ")
         flag = 0
@@ -168,9 +169,9 @@ while numcol != 1:
         if guess == gender:
             print("CORRECT GUESS!!!")
             ctr=0
-            #iterate through all the eye colors of all the people
+            #iterate through the gender of all the people
             for x in data[3]:
-                #if a person's eye color doesn't match
+                #if a person's gender doesn't match
                 if guess != x:
                     print(names[ctr] + " is eliminated")
                     data = np.delete(data, ctr, 1)
@@ -186,9 +187,9 @@ while numcol != 1:
             print("WRONG GUESS!")
             ctr = 0
             flag = 0
-            #iterate through all the eye colors of all the people
+            #iterate through the genders of all the people
             for x in data[3]:
-                #if a person's eye color does match
+                #if a person's gender does match
                 if guess == x:
                     print(names[ctr] + " is eliminated")
                     data = np.delete(data, ctr, 1)
@@ -196,7 +197,7 @@ while numcol != 1:
                     flag = 1
                 else:
                     ctr = ctr + 1
-            #everyone remaining matched the guessed characteristic
+            #everyone remaining didn't match the guessed characteristic
             if flag == 0:
                 print("No one was eliminated")
 
@@ -209,9 +210,9 @@ while numcol != 1:
         if guess == beard:
             print("CORRECT GUESS!!!")
             ctr=0
-            #iterate through all the eye colors of all the people
+            #iterate through the beard data of all the people
             for x in data[4]:
-                #if a person's eye color doesn't match
+                #if the guess doesn't match the characteristic
                 if guess != x:
                     print(names[ctr] + " is eliminated")
                     data = np.delete(data, ctr, 1)
@@ -227,9 +228,9 @@ while numcol != 1:
             print("WRONG GUESS!")
             ctr = 0
             flag = 0
-            #iterate through all the eye colors of all the people
+            #iterate through the beard data of all the people
             for x in data[4]:
-                #if a person's eye color does match
+                #if the guess does match the characteristic
                 if guess == x:
                     print(names[ctr] + " is eliminated")
                     data = np.delete(data, ctr, 1)
@@ -237,7 +238,7 @@ while numcol != 1:
                     flag = 1
                 else:
                     ctr = ctr + 1
-            #everyone remaining matched the guessed characteristic
+            #everyone remaining didn't match the guessed characteristic
             if flag == 0:
                 print("No one was eliminated")
 
@@ -250,9 +251,9 @@ while numcol != 1:
         if guess == hat:
             print("CORRECT GUESS!!!")
             ctr=0
-            #iterate through all the eye colors of all the people
+            #iterate through the hat data all the people
             for x in data[5]:
-                #if a person's eye color doesn't match
+                #if the guess doesn't match the characteristic
                 if guess != x:
                     print(names[ctr] + " is eliminated")
                     data = np.delete(data, ctr, 1)
@@ -260,7 +261,7 @@ while numcol != 1:
                     flag =1
                 else:
                     ctr = ctr + 1
-            #everyone remaining matched the guessed characteristic
+            #everyone remaining didn't match the guessed characteristic
             if flag == 0:
                 print("No one was eliminated")
         #if wrong guess
@@ -268,9 +269,9 @@ while numcol != 1:
             print("WRONG GUESS!")
             ctr = 0
             flag = 0
-            #iterate through all the eye colors of all the people
+            #iterate through the hat data of all the people
             for x in data[5]:
-                #if a person's eye color does match
+                #if the guess does match the characteristic
                 if guess == x:
                     print(names[ctr] + " is eliminated")
                     data = np.delete(data, ctr, 1)
@@ -278,11 +279,11 @@ while numcol != 1:
                     flag = 1
                 else:
                     ctr = ctr + 1
-            #everyone remaining matched the guessed characteristic
+            #everyone remaining didn't match the guessed characteristic
             if flag == 0:
                 print("No one was eliminated")
 
-
+#calculates the remaining number of people
     numcol = len(data[0])
     score = score + 1
     if numcol == 1:
